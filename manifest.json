@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "description": "Affiche l'avis des valeureux guéguerreux",
+  "name": "L'avis de guéguerre",
+  "version": "1.0",
+
+  "permissions": [
+  	"*://*.gamekult.com/*",
+    "activeTab"
+  ],
+
+  "browser_action": {
+  	"browser_style": true,
+    "default_icon": {
+      "16": "icons/gueguerre-16.png",
+      "32": "icons/gueguerre-32.png"
+    },
+    "default_popup": "popup/list-reviews.html"
+  }
+}
