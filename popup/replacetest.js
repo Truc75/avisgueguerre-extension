@@ -1,12 +1,13 @@
-fetch('./content_scripts/avisgueguerre.json')
+fetch('https://raw.githubusercontent.com/Truc75/avisgueguerre-extension/master/popup/content_scripts/avisgueguerre.json')
 .then(function(response) {
   return response.json();
 }).then(function(reviews) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var currentTab = tabs[0];
+    console.log(currentTab)
+    var buttonsSelector = document.querySelectorAll('button');
 
-    var buttonsSelector = document.querySelectorAll('button')
-
+    // We are not in a classic webpage
     if (!currentTab.url || currentTab.url.indexOf('/') < 0) {
       disabledAllButtons(buttonsSelector);
       return;

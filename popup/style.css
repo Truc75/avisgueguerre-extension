@@ -39,6 +39,10 @@ html, body {
   text-align: center;
 }
 
+.review-item:hover {
+  color: #333!important;
+}
+
 .review-item:hover img {
   transform: translate(0,-80px);
 }
@@ -46,8 +50,8 @@ html, body {
 
 .review-item img {
   transition: all .5s;
-    position: absolute;
-    left: 50%;
+  position: absolute;
+  left: 50%;
   top: 35px;
   z-index: 0;
   margin-left: -87.5px;
@@ -59,12 +63,27 @@ p {
   text-align: center;
 }
 
-
+.review-item.active {
+  border: 2px solid #333;
+}
 
 .review-item:active.sony, .review-item.active.sony {
-  background-image: url('images/sony.jpg');
+  background-image: url('images/background/sony.jpg');
   color: white;
 }
+
+.review-item:active.pc, .review-item.active.pc {
+  background-image: url('images/background/pc.jpg');
+  color: #333;
+  background-position: contain contain;
+}
+
+.review-item:active.xbox, .review-item.active.xbox {
+  background-image: url('images/background/xbox.jpg');
+  color: #fff;
+  background-position: center center;
+}
+
 
 .review-item:active, .review-item.active {
   background-color: #c6c6c6;
