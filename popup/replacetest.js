@@ -4,7 +4,7 @@ fetch('https://raw.githubusercontent.com/Truc75/avisgueguerre-extension/master/p
 }).then(function(reviews) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var currentTab = tabs[0];
-    console.log(currentTab)
+
     var buttonsSelector = document.querySelectorAll('button');
 
     // We are not in a classic webpage
@@ -29,7 +29,9 @@ fetch('https://raw.githubusercontent.com/Truc75/avisgueguerre-extension/master/p
       }
     }
 
-    bindEvents(reviews, tabs);
+    var basedDavidImg = chrome.extension.getURL("popup/images/based-davidlafarge.png");
+
+    bindEvents(reviews, tabs, basedDavidImg);
   });
 });
 
@@ -42,7 +44,7 @@ function disabledAllButtons (selector) {
 }
 
 
-function bindEvents(reviews, tabs) {
+function bindEvents(reviews, tabs, image) {
   var currentTab = tabs[0];
 
   document.addEventListener("click", function(e) {
@@ -65,7 +67,7 @@ function bindEvents(reviews, tabs) {
     var idTest = currentTab.url.match(/\-(.*?)\./)[1].split('-')[currentTab.url.match(/\-(.*?)\./)[1].split('-').length - 1];
 
     var review = reviews[idTest].reviews[reviewType] ;
-    chrome.tabs.sendMessage(tabs[0].id, {type: reviewType, review: review});
+    chrome.tabs.sendMessage(tabs[0].id, {type: reviewType, review: review, sponsor: image});
   });
 }
 

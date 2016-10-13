@@ -84,6 +84,11 @@ p {
   background-position: center center;
 }
 
+.review-item:active.nintendo, .review-item.active.nintendo {
+  background-image: url('images/background/nintendo.jpg');
+  background-position: center center;
+}
+
 
 .review-item:active, .review-item.active {
   background-color: #c6c6c6;
